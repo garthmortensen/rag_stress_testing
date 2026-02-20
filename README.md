@@ -1,11 +1,11 @@
-# RAG Stress Testing
+# RAG
 
-![CI](https://github.com/garthmortensen/rag_stress_testing/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/garthmortensen/rag/actions/workflows/ci.yml/badge.svg)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![python](https://img.shields.io/badge/Python-3.13+-3776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
 [![tested with pytest](https://img.shields.io/badge/tested%20with-pytest-46M3D2.svg?logo=pytest&logoColor=white)](https://docs.pytest.org/en/latest/)
 
-This repository contains a Retrieval-Augmented Generation (RAG) for public Stress Testing docs. The goal is to build a RAG using open-source tools to ingest, index, and query publically available stress testing documentation.
+This repository contains a Retrieval-Augmented Generation (RAG) for public docs. The goal is to build a RAG using open-source tools to ingest, index, and query publically available documentation.
 
 ## Setup
 
@@ -33,28 +33,9 @@ https://github.com/astral-sh/uv?tab=readme-ov-file#installation
    uv add <package_name>
    ```
 
-### Pre-commit Checks
-
-Before committing changes, ensure your code is formatted and passes tests:
-
-```bash
-# Format code (whitespace, layout, standardizes style)
-uv run ruff format .
-
-# Run linting (fixes logic errors, unused imports, bad practices)
-uv run ruff check . --fix
-
-# Run tests
-uv run pytest
-```
-
-### Workflow & Versioning
-
-This project uses [Commitizen](https://commitizen-tools.github.io/commitizen/) to standardize commit messages, automate versioning, and generate changelogs.
-
 ## Data Acquisition
 
-To download the stress testing corpus:
+To download the corpus:
 
 1. **Run the downloader**:
    ```bash
@@ -90,7 +71,7 @@ To load and process the downloaded corpus:
 ## Project Structure
 
 ```text
-rag_stress_testing/
+rag/
 ├── corpus/
 │   ├── data_sources.csv       # URLs and metadata for downloading
 │   ├── metadata.csv           # Auto-generated download metadata
@@ -124,7 +105,7 @@ rag_stress_testing/
 - [ ] Ensure project works across different OS (Linux, Windows) with CI/CD
 
 ### Phase 2: get & process data
-- [x] Build scrapers for public stress testing documentation (PDFs/HTML/TXT)
+- [x] Build scrapers for public documentation (PDFs/HTML/TXT)
 - [x] Move download_data.py to src/ingestion/downloader.py
 - [x] Implement document loaders (HTML, CSV, PDF, Excel, text, Markdown, JSON, Word, PowerPoint)
 - [x] Implement ingestion pipeline (processor.py)

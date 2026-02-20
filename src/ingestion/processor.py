@@ -1,13 +1,14 @@
 """Main ingestion pipeline.
 
-Loads raw corpus files, logs a summary, and prepares documents
-for downstream embedding and storage.
+Loads raw corpus files, chunks them, logs a summary, and prepares
+documents for downstream embedding and storage.
 """
 
 import logging
 import sys
 
 from src.ingestion.loaders import load_directory, LOADER_MAP
+from src.ingestion.chunker import chunk_documents
 
 logging.basicConfig(
     level=logging.INFO,
@@ -44,7 +45,10 @@ def run() -> list:
     supported = ", ".join(LOADER_MAP.keys())
     logger.info("Supported file types: %s", supported)
 
-    return docs
+    # Step 2: Chunk documents into smaller pieces for embedding
+    chunks = chunk_documents(docs)
+
+    return chunks
 
 
 if __name__ == "__main__":
