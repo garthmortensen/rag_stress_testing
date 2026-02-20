@@ -66,7 +66,7 @@ We should move towards a `src` layout, which is a pattern standard in modern Pyt
 3.  **Explicit Imports**: Ensures that tests run against the installed package, mirroring how a user would use it.
 
 ```text
-rag_stress_testing/
+rag/
 ├── corpus/
 │   ├── raw_data/          # (Existing) The downloaded files
 │   └── vector_db/         # (New) Where the database lives on disk
